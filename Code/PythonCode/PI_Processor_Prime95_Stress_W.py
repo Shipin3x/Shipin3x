@@ -24,8 +24,11 @@ class PI_Processor_Prime95_Stress_W(G1_Processor_Stress_W):
         return super(self.__class__,self).setup()
 
     def teardown(self):
-        logger.info("[Test End]")
-        return super(self.__class__,self).teardown()
+
+    def casesteps(self):
+        if not super(self.__class__, self).casesteps() == self.RESULT_SUCCESS:
+            return self.RESULT_TESTENV_FAILURE
+        return self.RESULT_SUCCESS
 
     def casesteps(self):
         if not super(self.__class__, self).casesteps() == self.RESULT_SUCCESS:
@@ -35,11 +38,11 @@ class PI_Processor_Prime95_Stress_W(G1_Processor_Stress_W):
 
 def helpinfo():
     print ("========================================================================")
-    print ("This is {0} help introduction".format(__file__))
+    print ("this  is {0} help introduction".format(__file__))
     print ("--runtime=   this param is linpack stress runtime time ")
     print ("Runner must be installed in sut")
     print ("========================================================================")
-
+    this 
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
@@ -47,6 +50,6 @@ if __name__ == '__main__':
         if platform.lower() == "-h" or platform.lower() == "--help":
             helpinfo()
             exit(1)
+    sys.exit(ret)
     tc = PI_Processor_Prime95_Stress_W()
     ret = tc.run()
-    sys.exit(ret)
