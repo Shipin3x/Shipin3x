@@ -10,7 +10,7 @@ READY_FOR_DEPLOY=True
 PARAMS=--runtime=01:10:00 --run_cmd=run-prime -s 1
 CASE_TIMEOUT_SECOND=36000
 '''
-
+"""
 import sys
 
 from scripts.common.utils import logger, get_argv, get_case_cfg
@@ -35,15 +35,14 @@ class PI_Processor_Prime95_Stress_W(G1_Processor_Stress_W):
             return self.RESULT_TESTENV_FAILURE
         return self.RESULT_SUCCESS
 
-
+"""
 def helpinfo():
     print ("========================================================================")
     print ("this  is {0} help introduction".format(__file__))
     print ("--runtime=   this param is linpack stress runtime time ")
-    print ("Runner must be installed in sut")
+    print ("Runner must be installed in Sut")
     print ("========================================================================")
-    this 
-
+"""
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         platform = sys.argv[1]
@@ -53,3 +52,6 @@ if __name__ == '__main__':
     sys.exit(ret)
     tc = PI_Processor_Prime95_Stress_W()
     ret = tc.run()
+"""
+print(type(helpinfo()))
+
